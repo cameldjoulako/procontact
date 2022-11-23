@@ -33,7 +33,7 @@ class _EditContactState extends State<EditContact> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SQLite CRUD"),
+        title: const Text("ProContact"),
       ),
       body: SingleChildScrollView(
         child: Container(

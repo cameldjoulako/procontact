@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'ProContact',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(),
     );
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SQLite CRUD"),
+        title: const Text("ProContact"),
       ),
       body: ListView.builder(
           itemCount: _userList.length,

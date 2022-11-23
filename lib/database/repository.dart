@@ -1,4 +1,4 @@
-import 'package:procontact/db/database_connection.dart';
+import 'package:procontact/database/database_connection.dart';
 import 'package:sqflite/sqflite.dart';
 
 class Repository {
@@ -17,7 +17,7 @@ class Repository {
   }
 
   //Insert Contact
-  insertData(table, data) async {
+  insertContact(table, data) async {
     var connection = await database;
     return await connection?.insert(table, data);
   }

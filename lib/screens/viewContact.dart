@@ -15,10 +15,10 @@ class _ViewContactState extends State<ViewContact> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("SQLite CRUD"),
+          title: const Text("ProContact"),
         ),
         body: Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,7 +59,7 @@ class _ViewContactState extends State<ViewContact> {
                   Padding(
                     padding: const EdgeInsets.only(left: 25),
                     child: Text(widget.user.contact ?? '',
-                        style: TextStyle(fontSize: 16)),
+                        style: const TextStyle(fontSize: 16)),
                   ),
                 ],
               ),
