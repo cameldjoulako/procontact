@@ -1,4 +1,4 @@
-import 'package:procontact/db_helper/database_connection.dart';
+import 'package:procontact/db/database_connection.dart';
 import 'package:sqflite/sqflite.dart';
 
 class Repository {

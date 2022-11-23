@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:procontact/db_helper/repository.dart';
+import 'package:procontact/db/repository.dart';
 import 'package:procontact/model/Contact.dart';
 
 class ContactService {
