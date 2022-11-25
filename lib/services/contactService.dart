@@ -22,7 +22,7 @@ class ContactService {
     return await _repository.updateData('contacts', contact.contactMap());
   }
 
-  deleteContact(userId) async {
-    return await _repository.deleteDataById('contacts', userId);
+  deleteContact(contactId) async {
+    return await _repository.deleteDataById('contacts', contactId);
   }
 }
