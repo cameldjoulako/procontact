@@ -3,6 +3,7 @@ import 'package:procontact/pages/editContact.dart';
 import 'package:procontact/pages/addContact.dart';
 import 'package:procontact/services/contactService.dart';
 import 'package:flutter/material.dart';
+import 'package:colorize_text_avatar/colorize_text_avatar.dart';
 
 void main() {
   runApp(
@@ -161,7 +162,15 @@ class _MyHomePageState extends State<MyHomePage> {
             return Card(
               child: ListTile(
                 onTap: null,
-                leading: const Icon(Icons.person),
+                leading: Column(children: [
+                  TextAvatar(
+                    textColor: Colors.white,
+                    shape: Shape.Circular,
+                    text: _contactList[index].name ?? '',
+                    numberLetters: 2,
+                    upperCase: true,
+                  ),
+                ]),
                 title: Text(
                   _contactList[index].name ?? '',
                   style: const TextStyle(
