@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:procontact/model/Contact.dart';
 import 'package:procontact/services/contactService.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +12,13 @@ class AddContact extends StatefulWidget {
 }
 
 class _AddContactState extends State<AddContact> {
-  var _contactNameController = TextEditingController();
-  var _contactPhoneController = TextEditingController();
-  var _contactEmailController = TextEditingController();
+  final _contactNameController = TextEditingController();
+  final _contactPhoneController = TextEditingController();
+  final _contactEmailController = TextEditingController();
   bool _validateName = false;
   bool _validatePhone = false;
   bool _validateEmail = false;
-  var _contactService = ContactService();
+  final _contactService = ContactService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,12 +123,12 @@ class _AddContactState extends State<AddContact> {
                           _validatePhone == false &&
                           _validateEmail == false) {
                         // print("Good Data Can Save");
-                        var _contact = Contact();
-                        _contact.name = _contactNameController.text;
-                        _contact.phone = _contactPhoneController.text;
-                        _contact.email = _contactEmailController.text;
-                        var result =
-                            await _contactService.SaveContact(_contact);
+                        var contact = Contact();
+                        contact.name = _contactNameController.text;
+                        contact.phone = _contactPhoneController.text;
+                        contact.email = _contactEmailController.text;
+                        var result = await _contactService.saveContact(contact);
+                        // ignore: use_build_context_synchronously
                         Navigator.pop(context, result);
                       }
                     },

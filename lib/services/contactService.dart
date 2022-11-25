@@ -1,4 +1,5 @@
-import 'dart:async';
+// ignore_for_file: file_names
+
 import 'package:procontact/database/repository.dart';
 import 'package:procontact/model/Contact.dart';
 
@@ -7,22 +8,23 @@ class ContactService {
   ContactService() {
     _repository = Repository();
   }
-  //Save Contact
-  SaveContact(Contact contact) async {
+
+  //Enregistrer un Contact
+  saveContact(Contact contact) async {
     return await _repository.insertContact('contacts', contact.contactMap());
   }
 
-  //Read All Contacts
+  //Recuperer tous les Contacts
   readAllContacts() async {
-    return await _repository.readData('contacts');
+    return await _repository.readContact('contacts');
   }
 
   //Edit Contact
-  UpdateContact(Contact contact) async {
-    return await _repository.updateData('contacts', contact.contactMap());
+  updateContact(Contact contact) async {
+    return await _repository.updateContact('contacts', contact.contactMap());
   }
 
   deleteContact(contactId) async {
-    return await _repository.deleteDataById('contacts', contactId);
+    return await _repository.deleteContactById('contacts', contactId);
   }
 }

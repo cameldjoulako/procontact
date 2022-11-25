@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:procontact/model/Contact.dart';
 import 'package:procontact/services/contactService.dart';
 import 'package:flutter/material.dart';
@@ -11,13 +13,13 @@ class EditContact extends StatefulWidget {
 }
 
 class _EditContactState extends State<EditContact> {
-  var _contactNameController = TextEditingController();
-  var _contactPhoneController = TextEditingController();
-  var _contactEmailController = TextEditingController();
+  final _contactNameController = TextEditingController();
+  final _contactPhoneController = TextEditingController();
+  final _contactEmailController = TextEditingController();
   bool _validateName = false;
   bool _validateContact = false;
   bool _validateDescription = false;
-  var _contactService = ContactService();
+  final _contactService = ContactService();
 
   @override
   void initState() {
@@ -54,7 +56,9 @@ class _EditContactState extends State<EditContact> {
               TextField(
                 controller: _contactNameController,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   hintText: 'Entrer le nom',
                   labelText: 'Nom',
                   errorText: _validateName
@@ -68,7 +72,9 @@ class _EditContactState extends State<EditContact> {
               TextField(
                 controller: _contactPhoneController,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   hintText: 'Enter le numéro de téléphone ',
                   labelText: 'Télephone',
                   errorText: _validateContact ? 'Télephone obligatoire' : null,
@@ -80,7 +86,9 @@ class _EditContactState extends State<EditContact> {
               TextField(
                 controller: _contactEmailController,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   hintText: 'Entrer adresse email',
                   labelText: 'E-mail',
                   errorText: _validateDescription ? 'Email obligatoire' : null,
@@ -116,13 +124,14 @@ class _EditContactState extends State<EditContact> {
                           _validateContact == false &&
                           _validateDescription == false) {
                         // print("Good Data Can Save");
-                        var _contact = Contact();
-                        _contact.id = widget.contact.id;
-                        _contact.name = _contactNameController.text;
-                        _contact.phone = _contactPhoneController.text;
-                        _contact.email = _contactEmailController.text;
+                        var contact = Contact();
+                        contact.id = widget.contact.id;
+                        contact.name = _contactNameController.text;
+                        contact.phone = _contactPhoneController.text;
+                        contact.email = _contactEmailController.text;
                         var result =
-                            await _contactService.UpdateContact(_contact);
+                            await _contactService.updateContact(contact);
+                        // ignore: use_build_context_synchronously
                         Navigator.pop(context, result);
                       }
                     },

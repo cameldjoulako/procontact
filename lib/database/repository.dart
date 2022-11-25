@@ -1,4 +1,4 @@
-import 'package:procontact/database/database_connection.dart';
+import 'package:procontact/database/databaseConnection.dart';
 import 'package:sqflite/sqflite.dart';
 
 class Repository {
@@ -16,33 +16,41 @@ class Repository {
     }
   }
 
-  //Insert Contact
+  //Ajouter un contact
   insertContact(table, data) async {
     var connection = await database;
     return await connection?.insert(table, data);
   }
 
-  //Read All Record
-  readData(table) async {
+  //Recuperer tous les Contacts
+  readContact(table) async {
     var connection = await database;
     return await connection?.query(table);
   }
 
-  //Read a Single Record By ID
-  readDataById(table, itemId) async {
+  //recuperer un ciontact a partir de son id
+  readContactById(table, itemId) async {
     var connection = await database;
-    return await connection?.query(table, where: 'id=?', whereArgs: [itemId]);
+    return await connection?.query(
+      table,
+      where: 'id=?',
+      whereArgs: [itemId],
+    );
   }
 
-  //Update Contact
-  updateData(table, data) async {
+  //Modifier un contact
+  updateContact(table, data) async {
     var connection = await database;
-    return await connection
-        ?.update(table, data, where: 'id=?', whereArgs: [data['id']]);
+    return await connection?.update(
+      table,
+      data,
+      where: 'id=?',
+      whereArgs: [data['id']],
+    );
   }
 
-  //Delete Contact
-  deleteDataById(table, itemId) async {
+  //Supprimer Contact
+  deleteContactById(table, itemId) async {
     var connection = await database;
     return await connection?.rawDelete("delete from $table where id=$itemId");
   }

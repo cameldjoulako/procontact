@@ -1,5 +1,5 @@
 import 'package:procontact/model/Contact.dart';
-import 'package:procontact/pages/EditContact.dart';
+import 'package:procontact/pages/editContact.dart';
 import 'package:procontact/pages/addContact.dart';
 import 'package:procontact/services/contactService.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ProContact',
+      title: 'ProContacts',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -61,7 +61,13 @@ class _MyHomePageState extends State<MyHomePage> {
   _showSuccessSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Text(
+          message,
+          style: const TextStyle(
+            fontSize: 18,
+          ),
+        ),
+        backgroundColor: Colors.blueAccent,
       ),
     );
   }
@@ -113,12 +119,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blue,
-        title: const Text("ProContact"),
+        title: const Text(
+          "ProContact",
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        ),
         leading: const IconButton(
           icon: Icon(
             Icons.menu,
             color: Colors.white,
-            size: 25,
+            size: 30,
           ),
           onPressed: null,
         ),
@@ -126,9 +137,9 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           IconButton(
             icon: const Icon(
-              Icons.people,
+              Icons.person_add_alt,
               color: Colors.white,
-              size: 25,
+              size: 30,
             ),
             onPressed: () {
               Navigator.push(
