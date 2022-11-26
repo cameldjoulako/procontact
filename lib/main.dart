@@ -166,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   TextAvatar(
                     textColor: Colors.white,
                     shape: Shape.Circular,
-                    text: _contactList[index].name ?? '',
+                    text: _contactList[index].name ?? 'Driss As',
                     numberLetters: 2,
                     upperCase: true,
                   ),
