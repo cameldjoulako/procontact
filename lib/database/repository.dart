@@ -28,7 +28,7 @@ class Repository {
     return await connection?.query(table);
   }
 
-  //recuperer un ciontact a partir de son id
+  //recuperer un contact a partir de son id
   readContactById(table, itemId) async {
     var connection = await database;
     return await connection?.query(
@@ -49,7 +49,7 @@ class Repository {
     );
   }
 
-  //Supprimer Contact
+  //Supprimer un Contact
   deleteContactById(table, itemId) async {
     var connection = await database;
     return await connection?.rawDelete("delete from $table where id=$itemId");
