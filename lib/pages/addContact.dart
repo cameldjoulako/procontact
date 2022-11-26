@@ -122,7 +122,6 @@ class _AddContactState extends State<AddContact> {
                       if (_validateName == false &&
                           _validatePhone == false &&
                           _validateEmail == false) {
-                        // print("Good Data Can Save");
                         var contact = Contact();
                         contact.name = _contactNameController.text;
                         contact.phone = _contactPhoneController.text;

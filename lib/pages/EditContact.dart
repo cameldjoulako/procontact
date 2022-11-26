@@ -123,7 +123,6 @@ class _EditContactState extends State<EditContact> {
                       if (_validateName == false &&
                           _validateContact == false &&
                           _validateDescription == false) {
-                        // print("Good Data Can Save");
                         var contact = Contact();
                         contact.id = widget.contact.id;
                         contact.name = _contactNameController.text;
