@@ -28,16 +28,6 @@ class Repository {
     return await connection?.query(table);
   }
 
-  //recuperer un contact a partir de son id
-  readContactById(table, itemId) async {
-    var connection = await database;
-    return await connection?.query(
-      table,
-      where: 'id=?',
-      whereArgs: [itemId],
-    );
-  }
-
   //Modifier un contact
   updateContact(table, data) async {
     var connection = await database;
